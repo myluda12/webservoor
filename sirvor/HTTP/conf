@@ -1,0 +1,44 @@
+Server {
+    listen             127.0.0.1 8080
+    root             ./HTTP
+    allow_methods      GET POST 
+
+    upload_path        /somewhere/ 
+
+    index index.html index.php 
+     
+    error_page      404 ./HTTP/error_pages/404.html
+    error_page      403 ./HTTP/error_pages/403.html
+    error_page      405 ./HTTP/error_pages/405.html
+    error_page      500 ./HTTP/error_pages/500.html
+    autoindex off
+
+    redirection    /doooooxsxvasvf /test/
+    
+    
+
+
+    location {
+        root ./HTTP
+        path /PATH03/index.html
+        autoindex on
+        allow_methods  GET POST
+    }
+    
+
+    location {
+        root ./root/univers/user
+        autoindex on
+        path /users 
+        allow_methods GET  POST
+    } 
+    cgi /HTTP/PATH03/ayoub.php
+    {
+        allow_methods      POST
+        cgi_path         /Volumes/SPYDERSY/webserv/cgi-bin/php-cgi
+    }
+
+    client_max_body_size 2345
+}
+
+
